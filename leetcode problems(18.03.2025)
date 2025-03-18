@@ -12,3 +12,28 @@ class Solution {
         return ans==old;
     }
 }
+
+Longest substring without repeating character
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character,Integer>hm=new HashMap<Character,Integer>();
+        int max=0;
+        char []arr=s.toCharArray();
+        for(int i=0;i<arr.length;i++){
+            char chh=arr[i];
+            if(!hm.containsKey(chh)){
+                hm.put(chh,i);
+            }
+            else{
+                i=hm.get(chh);
+                hm.clear();
+            }
+            if(hm.size()>max){
+                max=hm.size();
+            }
+           
+        }
+         return max;
+    }
+}
